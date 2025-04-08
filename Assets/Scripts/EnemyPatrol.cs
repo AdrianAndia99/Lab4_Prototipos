@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;  
-    public float speed = 5f;  
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
+    [SerializeField] private float speed = 5f;  
 
     private Vector3 target;   
 
