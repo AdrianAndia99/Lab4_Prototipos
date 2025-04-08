@@ -13,7 +13,11 @@ public class CambioEscena : MonoBehaviour
 
     public void Salir()
     {
-        Debug.Log("Saliste");
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+
+#else
+                                        Application.Quit();
+#endif
     }
 }
