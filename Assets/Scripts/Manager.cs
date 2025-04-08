@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class Manager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI TextTime;
+    [SerializeField] private TextMeshProUGUI TextTimeEnd;
     [SerializeField] private TextMeshProUGUI TextLife;
+
     [SerializeField] private TextMeshProUGUI TextScore;
     [SerializeField] private GameObject panelWinOrLose;
     [SerializeField] private GameObject panelPause;
@@ -76,5 +78,6 @@ public class Manager : MonoBehaviour
         panelWinOrLose.SetActive(true);
         TextResult.text = victory ? "¡GANASTE!" : "PERDISTE";
         Time.timeScale = 0f;
+        TextTimeEnd.text = "Tiempo " + time.ToString("F2");
     }
 }
