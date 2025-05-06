@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Assets.Scripts.GameEventProt;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Assets.Scripts.GameEvents;
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameEvent gameEventOnWin;
     [SerializeField] private GameEvent gameEventOnLose;
     //
+    [SerializeField] private GameIntEvent updateCoin;
+    [SerializeField] private GameIntEvent updateLife;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -72,12 +76,12 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Money"))
         {
             int points = 10;
-            GameEventsDep.ScoreUpdated(points);
+            updateCoin.Raise(points); 
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Heart"))
         {
-            int healAmount = 20;
+            int healAmount = 4;
             Heal(healAmount);
             Destroy(other.gameObject);
         }
@@ -129,13 +133,19 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
-        GameEventsDep.LifeUpdated(life);
 
         Debug.Log("Vida");
         if (life == 0)
         { //aquillamarevento
             gameEventOnLose.Raise();
            // GameEventsDep.GameEnd(false);
+        updateLife.Raise(life);
+        //GameEvents.LifeUpdated(life);
+
+        Debug.Log("Vida");
+        if (life == 0)
+        {
+            //GameEvents.GameEnd(false);
             Destroy(gameObject);
         }
     }
@@ -146,6 +156,7 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
-        GameEventsDep.LifeUpdated(life);
+        updateLife.Raise(life);
+        //GameEvents.LifeUpdated(life);
     }
 }
