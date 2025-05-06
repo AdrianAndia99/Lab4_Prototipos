@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using Assets.Scripts.GameEvents;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LifeBar barraVida;
     [SerializeField] private Manager gameManager;
 
+
+    //
+    [SerializeField] private GameEvent gameEventOnWin;
+    [SerializeField] private GameEvent gameEventOnLose;
+    //
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -30,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb2D.velocity = new Vector2(moveInput * speed, rb2D.velocity.y);
+        rb2D.linearVelocity = new Vector2(moveInput * speed, rb2D.linearVelocity.y);
         IsGrounded();
     }
 
@@ -47,17 +52,19 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Colores iguales, no se recibe daño.");
+                Debug.Log("Colores iguales, no se recibe daï¿½o.");
             }
         }
 
         if (collision.gameObject.CompareTag("Insta"))
         {
-            gameManager.EndGame(true);
+            gameEventOnWin.Raise();
+            //gameManager.EndGame(true);
 
         }else if (collision.gameObject.CompareTag("Respawn"))
         {
-            gameManager.EndGame(false);
+           gameEventOnLose.Raise();
+           // gameManager.EndGame(false);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Money"))
         {
             int points = 10;
-            GameEvents.ScoreUpdated(points);
+            GameEventsDep.ScoreUpdated(points);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Heart"))
@@ -88,12 +95,12 @@ public class PlayerController : MonoBehaviour
         {
             if (context.performed)
             {
-                rb2D.velocity = new Vector2(rb2D.velocity.x, jumpforce);
+                rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpforce);
                 JumpsRemaining--;
             }
             else if (context.canceled)
             {
-                rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * 0.5f);
+                rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, rb2D.linearVelocity.y * 0.5f);
                 JumpsRemaining--;
             }
             Debug.Log("SALTA");
@@ -114,6 +121,7 @@ public class PlayerController : MonoBehaviour
             JumpsRemaining = 0;
         }
     }
+    // if(life=0){OnLose)
 
     public void TakeDamage(int damage)
     {
@@ -121,21 +129,23 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
-        GameEvents.LifeUpdated(life);
+        GameEventsDep.LifeUpdated(life);
 
         Debug.Log("Vida");
         if (life == 0)
-        {
-            GameEvents.GameEnd(false);
+        { //aquillamarevento
+            gameEventOnLose.Raise();
+           // GameEventsDep.GameEnd(false);
             Destroy(gameObject);
         }
     }
+    //
     public void Heal(int amount)
     {
         life += amount;
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
-        GameEvents.LifeUpdated(life);
+        GameEventsDep.LifeUpdated(life);
     }
 }
