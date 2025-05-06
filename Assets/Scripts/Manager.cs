@@ -67,9 +67,11 @@ public class Manager : MonoBehaviour
 
         }
     }
-    private void UpdateLifeUI(int newLife)
+    public void UpdateLifeUI(int newLife)
     {
+        Debug.Log("Actualizando vida UI: " + newLife);
         TextLife.text = "Vida: " + newLife;
+
     }
 
     public void UpdateScoreUI(int newScore)

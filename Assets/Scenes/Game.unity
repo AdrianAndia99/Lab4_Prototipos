@@ -3535,8 +3535,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1536458578}
   - component: {fileID: 1536458579}
+  - component: {fileID: 1536458580}
   m_Layer: 0
-  m_Name: handler
+  m_Name: GameHandlerScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3576,6 +3577,34 @@ MonoBehaviour:
       - m_Target: {fileID: 609566385}
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
         m_MethodName: UpdateScoreUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1536458580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536458577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1706e4fd002d9419273c54a8fa13dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3cd0978f23ba75044a03121f5e8caf41, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609566385}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: UpdateLifeUI
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4654,6 +4683,7 @@ MonoBehaviour:
   barraVida: {fileID: 1948297201}
   gameManager: {fileID: 609566385}
   updateCoin: {fileID: 11400000, guid: b618981b1a2d5334a8a7ae677d4f638d, type: 2}
+  updateLife: {fileID: 11400000, guid: 3cd0978f23ba75044a03121f5e8caf41, type: 2}
 --- !u!114 &1838945588
 MonoBehaviour:
   m_ObjectHideFlags: 0

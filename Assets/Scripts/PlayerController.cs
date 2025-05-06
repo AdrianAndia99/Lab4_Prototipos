@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Manager gameManager;
 
     [SerializeField] private GameIntEvent updateCoin;
+    [SerializeField] private GameIntEvent updateLife;
 
     void Start()
     {
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Heart"))
         {
-            int healAmount = 20;
+            int healAmount = 4;
             Heal(healAmount);
             Destroy(other.gameObject);
         }
@@ -124,6 +125,7 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
+        updateLife.Raise(life);
         //GameEvents.LifeUpdated(life);
 
         Debug.Log("Vida");
@@ -139,6 +141,7 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
+        updateLife.Raise(life);
         //GameEvents.LifeUpdated(life);
     }
 }
