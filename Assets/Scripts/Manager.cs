@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Assets.Scripts.GameEventProt;
 
 public class Manager : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TextResult;
     [SerializeField] private TextMeshProUGUI AnotherTime;
     [SerializeField] private GameObject buttonP;
+
+    //semana 8 prototipos
+    //[SerializeField] private GameIntEvent scoreUpdated;
 
     private int score = 0;
     private float time;
@@ -35,6 +39,7 @@ public class Manager : MonoBehaviour
         GameEvents.OnLifeUpdated += UpdateLifeUI;
         GameEvents.OnScoreUpdated += UpdateScoreUI;
         GameEvents.OnGameEnd += EndGame;
+
     }
 
     private void OnDisable()
@@ -67,9 +72,10 @@ public class Manager : MonoBehaviour
         TextLife.text = "Vida: " + newLife;
     }
 
-    private void UpdateScoreUI(int newScore)
+    public void UpdateScoreUI(int newScore)
     {
         score += newScore;
+        //scoreUpdated.Raise(score);                             
         TextScore.text = "Puntos: " + score;
     }
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Assets.Scripts.GameEventProt;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int maxLife;
     [SerializeField] LifeBar barraVida;
     [SerializeField] private Manager gameManager;
+
+    [SerializeField] private GameIntEvent updateCoin;
 
     void Start()
     {
@@ -65,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Money"))
         {
             int points = 10;
-            GameEvents.ScoreUpdated(points);
+            updateCoin.Raise(points); 
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Heart"))
@@ -121,12 +124,12 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
-        GameEvents.LifeUpdated(life);
+        //GameEvents.LifeUpdated(life);
 
         Debug.Log("Vida");
         if (life == 0)
         {
-            GameEvents.GameEnd(false);
+            //GameEvents.GameEnd(false);
             Destroy(gameObject);
         }
     }
@@ -136,6 +139,6 @@ public class PlayerController : MonoBehaviour
         life = Mathf.Clamp(life, 0, maxLife);
 
         barraVida.ChangeActualLife(life);
-        GameEvents.LifeUpdated(life);
+        //GameEvents.LifeUpdated(life);
     }
 }
