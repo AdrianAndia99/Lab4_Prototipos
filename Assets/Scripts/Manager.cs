@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Assets.Scripts.GameEvents;
 
 public class Manager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class Manager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI AnotherTime;
     [SerializeField] private GameObject buttonP;
 
+    //
+   // [SerializeField] private GameEvent gameEventOnWin;
+    //[SerializeField] private GameEvent gameEventOnLose;
+    //
     private int score = 0;
     private float time;
     private float timeSpeed = 2.0f;
@@ -30,16 +35,16 @@ public class Manager : MonoBehaviour
     }
     private void OnEnable()
     {
-        GameEvents.OnLifeUpdated += UpdateLifeUI;
-        GameEvents.OnScoreUpdated += UpdateScoreUI;
-        GameEvents.OnGameEnd += EndGame;
+        GameEventsDep.OnLifeUpdated += UpdateLifeUI;
+        GameEventsDep.OnScoreUpdated += UpdateScoreUI;
+       // GameEventsDep.OnGameEnd += EndGame;//
     }
 
     private void OnDisable()
     {
-        GameEvents.OnLifeUpdated -= UpdateLifeUI;
-        GameEvents.OnScoreUpdated -= UpdateScoreUI;
-        GameEvents.OnGameEnd -= EndGame;
+        GameEventsDep.OnLifeUpdated -= UpdateLifeUI;
+        GameEventsDep.OnScoreUpdated -= UpdateScoreUI;
+       // GameEventsDep.OnGameEnd -= EndGame;//
     }
     public void Pause()
     {
@@ -75,6 +80,18 @@ public class Manager : MonoBehaviour
     {
         panelWinOrLose.SetActive(true);
         TextResult.text = victory ? "¡GANASTE!" : "PERDISTE";
+        Time.timeScale = 0f;
+    }
+    public void EndGame2()
+    {
+        panelWinOrLose.SetActive(true);
+        TextResult.text = "PERDISTE";
+        Time.timeScale = 0f;
+    }
+    public void WinGame()
+    {
+        panelWinOrLose.SetActive(true);
+        TextResult.text = "Ganaste";
         Time.timeScale = 0f;
     }
 }
