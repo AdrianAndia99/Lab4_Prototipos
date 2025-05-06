@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Assets.Scripts.GameEventProt;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Assets.Scripts.GameEvents;
+//using Assets.Scripts.GameEvents;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -138,15 +138,16 @@ public class PlayerController : MonoBehaviour
         if (life == 0)
         { //aquillamarevento
             gameEventOnLose.Raise();
-           // GameEventsDep.GameEnd(false);
-        updateLife.Raise(life);
-        //GameEvents.LifeUpdated(life);
+            // GameEventsDep.GameEnd(false);
+            updateLife.Raise(life);
+            //GameEvents.LifeUpdated(life);
 
-        Debug.Log("Vida");
-        if (life == 0)
-        {
-            //GameEvents.GameEnd(false);
-            Destroy(gameObject);
+            Debug.Log("Vida");
+            if (life == 0)
+            {
+                //GameEvents.GameEnd(false);
+                Destroy(gameObject);
+            }
         }
     }
     //

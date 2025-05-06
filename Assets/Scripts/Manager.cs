@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Assets.Scripts.GameEvents;
+//using Assets.Scripts.GameEvents;
 using Assets.Scripts.GameEventProt;
 
 public class Manager : MonoBehaviour
@@ -41,9 +41,7 @@ public class Manager : MonoBehaviour
     }
     private void OnEnable()
     {
-        GameEvents.OnLifeUpdated += UpdateLifeUI;
-        GameEvents.OnScoreUpdated += UpdateScoreUI;
-        GameEvents.OnGameEnd += EndGame;
+
 
     }
 

@@ -638,8 +638,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 315428253}
-  - component: {fileID: 315428252}
-  - component: {fileID: 315428254}
+  - component: {fileID: 315428256}
+  - component: {fileID: 315428257}
+  - component: {fileID: 315428258}
+  - component: {fileID: 315428259}
   m_Layer: 0
   m_Name: handler
   m_TagString: Untagged
@@ -647,34 +649,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &315428252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315428251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204ec5eb20a2bbd4a84734b589a717e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: d51d4e289747b164c9f3593d8ced9aeb, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 609566385}
-        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: WinGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &315428253
 Transform:
   m_ObjectHideFlags: 0
@@ -690,7 +664,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &315428254
+--- !u!114 &315428256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -699,10 +673,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 315428251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204ec5eb20a2bbd4a84734b589a717e0, type: 3}
+  m_Script: {fileID: 11500000, guid: e31d6119f2a2d8244b1e80445ed67a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: ac2c66c7e9300424f8abd55cf8e5347a, type: 2}
+  gameEvent: {fileID: 11400000, guid: 75b37da372ad91a4ea62b311b757ca70, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609566385}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: WinGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &315428257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315428251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31d6119f2a2d8244b1e80445ed67a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e02c6f0cc236a91448b6b74a81aa01e0, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -710,6 +712,62 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Manager, Assembly-CSharp
         m_MethodName: EndGame2
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &315428258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315428251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1706e4fd002d9419273c54a8fa13dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: c8a45d893c4beee49bc6ad9443fc3273, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609566385}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: UpdateLifeUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &315428259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315428251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1706e4fd002d9419273c54a8fa13dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: da9a1ca349246f8448eda0e83600e648, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 609566385}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: UpdateScoreUI
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1454,6 +1512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextTime: {fileID: 60721176}
+  TextTimeEnd: {fileID: 0}
   TextLife: {fileID: 1676155537}
   TextScore: {fileID: 1619107355}
   panelWinOrLose: {fileID: 644350855}
@@ -4696,8 +4755,10 @@ MonoBehaviour:
   maxLife: 10
   barraVida: {fileID: 1948297201}
   gameManager: {fileID: 609566385}
-  gameEventOnWin: {fileID: 11400000, guid: d51d4e289747b164c9f3593d8ced9aeb, type: 2}
-  gameEventOnLose: {fileID: 11400000, guid: ac2c66c7e9300424f8abd55cf8e5347a, type: 2}
+  gameEventOnWin: {fileID: 11400000, guid: 75b37da372ad91a4ea62b311b757ca70, type: 2}
+  gameEventOnLose: {fileID: 11400000, guid: e02c6f0cc236a91448b6b74a81aa01e0, type: 2}
+  updateCoin: {fileID: 11400000, guid: da9a1ca349246f8448eda0e83600e648, type: 2}
+  updateLife: {fileID: 11400000, guid: c8a45d893c4beee49bc6ad9443fc3273, type: 2}
 --- !u!114 &1838945588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4845,7 +4906,7 @@ SpriteRenderer:
   m_Size: {x: 5.63, y: 3.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1839271509
